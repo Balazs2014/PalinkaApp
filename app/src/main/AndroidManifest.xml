@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PálinkaApp">
         <activity
+            android:name=".AdatKeresesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdatFelvetelActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

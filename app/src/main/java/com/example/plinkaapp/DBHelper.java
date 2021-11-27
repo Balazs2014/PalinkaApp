@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class DBHelper  extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "palinka.db";
     private static final int DB_VERSION = 1;
 
@@ -26,13 +26,15 @@ public class DBHelper  extends SQLiteOpenHelper {
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_FOZO + " TEXT NOT NULL, " +
                 COL_GYUMOLCS + " TEXT NOT NULL, " +
-                COL_ALKOHOL + " INTEGER NOT NULL " +
+                COL_ALKOHOL + " INTEGER NOT NULL, " +
+                "UNIQUE(" + COL_FOZO + "," + COL_ALKOHOL + ")" +
                 ");";
         db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
     }
 }
