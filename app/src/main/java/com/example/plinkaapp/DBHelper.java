@@ -54,4 +54,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.query(TABLE_NAME, new String[]{COL_ID, COL_FOZO, COL_GYUMOLCS, COL_ALKOHOL},
                 null, null, null, null, null);
     }
+
+    public Cursor kereses(String fozo, String gyumolcs) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT " + COL_ALKOHOL + " FROM " + TABLE_NAME + " WHERE " + COL_FOZO
+                + " = ? AND " + COL_GYUMOLCS + " = ?", new String[]{fozo, gyumolcs});
+    }
 }
