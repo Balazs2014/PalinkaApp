@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         btn_felvetel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent felvetel = new Intent(MainActivity.this, AdatFelvetelActivity.class);
+                Intent felvetel = new Intent(MainActivity.this,
+                        AdatFelvetelActivity.class);
                 startActivity(felvetel);
                 finish();
             }
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         btn_kereses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent kereses = new Intent(MainActivity.this, AdatKeresesActivity.class);
+                Intent kereses = new Intent(MainActivity.this,
+                        AdatKeresesActivity.class);
                 startActivity(kereses);
                 finish();
             }
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Cursor adatok = adatbazis.listazas();
                 if (adatok.getCount() == 0) {
-                    Toast.makeText(MainActivity.this, "Nincs adat az adatbázisban", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Nincs adat az adatbázisban",
+                            Toast.LENGTH_SHORT).show();
                 } else {
                     StringBuilder sb = new StringBuilder();
                     while (adatok.moveToNext()) {
